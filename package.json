@@ -1,0 +1,14 @@
+{
+  "name": "onebox-web",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "packageManager": "pnpm@12.8.1",
+  "scripts": {
+    "dev": "pnpm --filter @onebox/web dev",
+    "build": "pnpm --filter @onebox/web build",
+    "typecheck": "pnpm -r --workspace-concurrency=1 run typecheck"
+  }
+}

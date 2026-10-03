@@ -1,0 +1,451 @@
+:root {
+  color-scheme: light;
+
+  /* 色板:对齐官网 oneboxable.com style.css 的设计令牌 */
+  --ob-bg: #ffffff;
+  --ob-bg-alt: #f6f8fc;
+  --ob-surface: #ffffff;
+  --ob-surface-2: #f2f5fb;
+  --ob-border: #e3e9f2;
+  --ob-border-strong: #d3dcea;
+
+  --ob-text: #0b1220;
+  --ob-text-secondary: #4a5568;
+  --ob-text-tertiary: #7a869c;
+
+  /* 主色双色:cyan → 紫 */
+  --ob-primary: #0891b2;
+  --ob-primary-hover: #0e7490;
+  --ob-primary-active: #155e75;
+  --ob-primary-2: #7c3aed;
+  --ob-primary-soft: rgba(8, 145, 178, 0.1);
+  --ob-primary-2-soft: rgba(124, 58, 237, 0.1);
+  --ob-primary-contrast: #ffffff;
+  --ob-gradient: linear-gradient(100deg, var(--ob-primary), var(--ob-primary-2));
+
+  /* 氛围层:网格线 + 大圆斑 */
+  --ob-grid: rgba(15, 23, 42, 0.055);
+  --ob-glow-1: rgba(8, 145, 178, 0.28);
+  --ob-glow-2: rgba(124, 58, 237, 0.24);
+
+  /* 分类 tint(六色):浅色主题 = 10-12% 透明底 + 饱和 ink */
+  --ob-tint-blue: rgba(37, 99, 235, 0.11);
+  --ob-tint-cyan: rgba(8, 145, 178, 0.11);
+  --ob-tint-green: rgba(16, 185, 129, 0.11);
+  --ob-tint-orange: rgba(249, 115, 22, 0.11);
+  --ob-tint-purple: rgba(124, 58, 237, 0.11);
+  --ob-tint-pink: rgba(236, 72, 153, 0.11);
+
+  --ob-tint-blue-edge: rgba(37, 99, 235, 0.3);
+  --ob-tint-cyan-edge: rgba(8, 145, 178, 0.32);
+  --ob-tint-green-edge: rgba(16, 185, 129, 0.3);
+  --ob-tint-orange-edge: rgba(249, 115, 22, 0.3);
+  --ob-tint-purple-edge: rgba(124, 58, 237, 0.3);
+  --ob-tint-pink-edge: rgba(236, 72, 153, 0.3);
+
+  --ob-blue-ink: #1d4ed8;
+  --ob-cyan: #0891b2;
+  --ob-cyan-ink: #0e7490;
+  --ob-green-ink: #047857;
+  --ob-orange-ink: #c2410c;
+  --ob-purple-ink: #6d28d9;
+  --ob-pink-ink: #be185d;
+
+  --ob-danger: #dc2626;
+  --ob-danger-soft: rgba(220, 38, 38, 0.1);
+  --ob-danger-edge: rgba(220, 38, 38, 0.32);
+  --ob-success: #22c55e;
+  --ob-success-ink: #16a34a;
+  --ob-warning: #f59e0b;
+
+  --ob-toast-bg: #0b1220;
+  --ob-toast-text: #ffffff;
+
+  /* 形状与层次 */
+  --ob-radius-sm: 8px;
+  --ob-radius: 11px;
+  --ob-radius-md: 16px;
+  --ob-radius-lg: 16px;
+  --ob-radius-full: 999px;
+  --ob-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --ob-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 12px 32px rgba(15, 23, 42, 0.06);
+  --ob-shadow-lg: 0 2px 4px rgba(15, 23, 42, 0.05), 0 20px 48px rgba(15, 23, 42, 0.1);
+  /* 双色辉光:主按钮 / FAB / 悬浮层用 */
+  --ob-shadow-tint: 0 6px 22px -6px var(--ob-glow-1), 0 6px 22px -8px var(--ob-glow-2);
+
+  /* 间距刻度 */
+  --ob-space-1: 4px;
+  --ob-space-2: 8px;
+  --ob-space-3: 12px;
+  --ob-space-4: 16px;
+  --ob-space-5: 24px;
+  --ob-space-6: 32px;
+
+  /* 字体 */
+  --ob-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans',
+    'Noto Sans SC', 'PingFang SC', 'Hiragino Sans', 'Microsoft YaHei', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --ob-font-mono: 'JetBrains Mono', 'SFMono-Regular', ui-monospace, 'SF Mono', Menlo,
+    Consolas, monospace;
+
+  /* 动效 */
+  --ob-ease: cubic-bezier(0.2, 0, 0, 1);
+  --ob-duration: 180ms;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --ob-bg: #05070d;
+  --ob-bg-alt: #080c15;
+  --ob-surface: #0c111c;
+  --ob-surface-2: #111827;
+  --ob-border: #1b2434;
+  --ob-border-strong: #26324a;
+
+  --ob-text: #e9eef8;
+  --ob-text-secondary: #9aa7bd;
+  --ob-text-tertiary: #6b7a92;
+
+  --ob-primary: #22d3ee;
+  --ob-primary-hover: #67e8f9;
+  --ob-primary-active: #a5f3fc;
+  --ob-primary-2: #a78bfa;
+  --ob-primary-soft: rgba(34, 211, 238, 0.1);
+  --ob-primary-2-soft: rgba(167, 139, 250, 0.1);
+  --ob-primary-contrast: #ffffff;
+
+  --ob-grid: rgba(148, 190, 255, 0.055);
+  --ob-glow-1: rgba(34, 211, 238, 0.26);
+  --ob-glow-2: rgba(167, 139, 250, 0.24);
+
+  /* 分类 tint:暗色主题亮度提高、透明度略升 */
+  --ob-tint-blue: rgba(96, 165, 250, 0.14);
+  --ob-tint-cyan: rgba(34, 211, 238, 0.14);
+  --ob-tint-green: rgba(52, 211, 153, 0.14);
+  --ob-tint-orange: rgba(251, 146, 60, 0.14);
+  --ob-tint-purple: rgba(167, 139, 250, 0.14);
+  --ob-tint-pink: rgba(244, 114, 182, 0.14);
+
+  --ob-tint-blue-edge: rgba(96, 165, 250, 0.38);
+  --ob-tint-cyan-edge: rgba(34, 211, 238, 0.38);
+  --ob-tint-green-edge: rgba(52, 211, 153, 0.38);
+  --ob-tint-orange-edge: rgba(251, 146, 60, 0.38);
+  --ob-tint-purple-edge: rgba(167, 139, 250, 0.38);
+  --ob-tint-pink-edge: rgba(244, 114, 182, 0.38);
+
+  --ob-blue-ink: #93c5fd;
+  --ob-cyan: #22d3ee;
+  --ob-cyan-ink: #67e8f9;
+  --ob-green-ink: #6ee7b7;
+  --ob-orange-ink: #fdba74;
+  --ob-purple-ink: #c4b5fd;
+  --ob-pink-ink: #f9a8d4;
+
+  --ob-danger: #f87171;
+  --ob-danger-soft: rgba(248, 113, 113, 0.14);
+  --ob-danger-edge: rgba(248, 113, 113, 0.38);
+  --ob-success: #34d399;
+  --ob-success-ink: #34d399;
+  --ob-warning: #fbbf24;
+
+  --ob-toast-bg: #e9eef8;
+  --ob-toast-text: #0b1220;
+
+  --ob-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --ob-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.35);
+  --ob-shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.4), 0 24px 56px rgba(0, 0, 0, 0.5);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ob-font);
+  color: var(--ob-text);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  background: var(--ob-bg);
+  min-height: 100vh;
+}
+
+/* 氛围层:56px 网格线,顶部 radial mask 淡出 */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -2px;
+  z-index: 0;
+  pointer-events: none;
+  background-image: linear-gradient(var(--ob-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ob-grid) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 110% 70% at 50% 0%, #000 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 110% 70% at 50% 0%, #000 20%, transparent 78%);
+}
+
+/* 氛围层:两枚 blur(90px) 大圆斑(glow-1 cyan / glow-2 紫) */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(90px);
+  opacity: 0.85;
+  background: radial-gradient(circle 310px at 150px 50px, var(--ob-glow-1) 99%, transparent 100%),
+    radial-gradient(circle 280px at calc(100% - 100px) 100px, var(--ob-glow-2) 99%, transparent 100%);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 渐变文字(品牌点缀用) */
+.ob-grad-text {
+  background: var(--ob-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- 按钮 ---------- */
+.ob-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ob-space-2);
+  border: 1px solid transparent;
+  border-radius: var(--ob-radius);
+  padding: 0 var(--ob-space-4);
+  height: 40px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--ob-duration) var(--ob-ease),
+    border-color var(--ob-duration) var(--ob-ease), color var(--ob-duration) var(--ob-ease),
+    box-shadow var(--ob-duration) var(--ob-ease), opacity var(--ob-duration) var(--ob-ease),
+    transform var(--ob-duration) var(--ob-ease);
+  user-select: none;
+}
+
+.ob-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ob-button--primary {
+  background: var(--ob-gradient);
+  color: #ffffff;
+  box-shadow: var(--ob-shadow-tint);
+}
+.ob-button--primary:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -6px var(--ob-glow-1), 0 12px 32px -8px var(--ob-glow-2);
+}
+
+.ob-button--secondary {
+  background: var(--ob-surface);
+  border-color: var(--ob-border-strong);
+  color: var(--ob-text);
+}
+.ob-button--secondary:not(:disabled):hover {
+  background: var(--ob-surface-2);
+  transform: translateY(-1px);
+}
+
+.ob-button--ghost {
+  background: transparent;
+  color: var(--ob-text-secondary);
+}
+.ob-button--ghost:not(:disabled):hover {
+  background: var(--ob-surface-2);
+  color: var(--ob-primary);
+}
+
+.ob-button--sm {
+  height: 32px;
+  padding: 0 var(--ob-space-3);
+  font-size: 13px;
+  border-radius: var(--ob-radius-sm);
+}
+
+/* ---------- 输入 ---------- */
+.ob-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ob-space-1);
+}
+
+.ob-field__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ob-text-secondary);
+}
+
+.ob-input,
+.ob-textarea,
+.ob-select {
+  width: 100%;
+  font: inherit;
+  color: var(--ob-text);
+  background: var(--ob-surface);
+  border: 1px solid var(--ob-border);
+  border-radius: var(--ob-radius);
+  padding: 0 var(--ob-space-3);
+  height: 40px;
+  outline: none;
+  transition: border-color var(--ob-duration) var(--ob-ease),
+    box-shadow var(--ob-duration) var(--ob-ease), background var(--ob-duration) var(--ob-ease);
+}
+
+.ob-textarea {
+  height: auto;
+  min-height: 88px;
+  padding: var(--ob-space-2) var(--ob-space-3);
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.ob-input:focus,
+.ob-textarea:focus,
+.ob-select:focus {
+  border-color: var(--ob-primary);
+  box-shadow: 0 0 0 3px var(--ob-primary-soft);
+}
+
+.ob-input::placeholder,
+.ob-textarea::placeholder {
+  color: var(--ob-text-tertiary);
+}
+
+.ob-field__error {
+  font-size: 12px;
+  color: var(--ob-danger);
+}
+
+/* ---------- 卡片(flat + 顶部渐变线) ---------- */
+.ob-card {
+  position: relative;
+  background: var(--ob-surface);
+  border: 1px solid var(--ob-border);
+  border-radius: var(--ob-radius-lg);
+  box-shadow: var(--ob-shadow);
+}
+
+.ob-card--interactive {
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+.ob-card--interactive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--ob-gradient);
+  opacity: 0;
+  transition: opacity 0.22s;
+}
+.ob-card--interactive:hover {
+  transform: translateY(-4px);
+  border-color: var(--ob-border-strong);
+  box-shadow: var(--ob-shadow-lg);
+}
+.ob-card--interactive:hover::before {
+  opacity: 1;
+}
+
+/* ---------- 徽章(mono 小字) ---------- */
+.ob-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ob-space-1);
+  padding: 2px var(--ob-space-2);
+  border-radius: var(--ob-radius-full);
+  font-family: var(--ob-font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--ob-surface-2);
+  color: var(--ob-text-secondary);
+  border: 1px solid var(--ob-border);
+}
+.ob-badge--primary {
+  background: var(--ob-primary-soft);
+  color: var(--ob-primary);
+  border-color: var(--ob-border-strong);
+}
+
+/* ---------- 加载 ---------- */
+.ob-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--ob-border-strong);
+  border-top-color: var(--ob-primary);
+  border-radius: 50%;
+  animation: ob-spin 0.8s linear infinite;
+}
+.ob-spinner--light {
+  border-color: rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+}
+
+@keyframes ob-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Toast ---------- */
+.ob-toaster {
+  position: fixed;
+  top: var(--ob-space-5);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ob-space-2);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.ob-toast {
+  background: var(--ob-toast-bg);
+  color: var(--ob-toast-text);
+  border-radius: var(--ob-radius);
+  padding: var(--ob-space-2) var(--ob-space-4);
+  font-size: 14px;
+  box-shadow: var(--ob-shadow-lg);
+  animation: ob-toast-in 200ms var(--ob-ease);
+  max-width: min(480px, calc(100vw - 32px));
+}
+.ob-toast--error {
+  background: var(--ob-danger);
+  color: #ffffff;
+}
+
+@keyframes ob-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

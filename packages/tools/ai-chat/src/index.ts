@@ -1,0 +1,81 @@
+import type { ToolModule } from '@onebox/core-react';
+
+export { AiChatProvider, useAiChat } from './context';
+export { AiChatPanel } from './AiChatPanel';
+export { AiChatController } from './controller';
+export type {
+  AiChatErrorCode,
+  AiChatMessage,
+  AiChatSendResult,
+  AiChatState,
+  ModelsStatus,
+} from './controller';
+
+export const aiChatTool: ToolModule = {
+  slug: 'ai-chat',
+  category: 'ai',
+  titleKey: 'chat.title',
+  descriptionKey: 'chat.description',
+  icon: '💬',
+  load: () => import('./ChatPage'),
+  dictionaries: {
+    'zh-CN': {
+      'chat.title': 'AI 聊天',
+      'chat.description': '多模型 AI 对话,与 App 同一套引擎与积分',
+      'chat.dockTitle': 'AI 助手',
+      'chat.greeting': '你好,我是 OneBox AI。告诉我你想做什么。',
+      'chat.online': '在线',
+      'chat.collapse': '收起',
+      'chat.placeholderDock': '输入指令,例如"帮我写一段周报"',
+      'chat.chip1': '帮我写一段周报',
+      'chat.chip2': '翻译一段英文',
+      'chat.chip3': '解释一下这个概念',
+      'chat.placeholder': '输入消息,Enter 发送,Shift+Enter 换行',
+      'chat.send': '发送',
+      'chat.stop': '停止',
+      'chat.model': '模型',
+      'chat.empty': '开始一段对话吧',
+      'chat.noPoints': '积分不足,请前往 App 充值',
+      'chat.loginRequired': '请先登录后再使用 AI 聊天',
+      'chat.errorGeneric': '请求失败,请稍后重试',
+      'chat.errorUpstream': 'AI 服务暂时不可用,请换个模型试试',
+      'chat.rateLimited': '请求太频繁,请稍后再试',
+      'chat.loadingModels': '正在加载模型…',
+      'chat.loadModelsFailed': '模型列表加载失败',
+      'chat.retry': '重试',
+      'chat.newChat': '新对话',
+      'chat.thinking': '正在思考…',
+      'chat.pointsLeft': '剩余积分',
+    },
+    en: {
+      'chat.title': 'AI Chat',
+      'chat.description': 'Multi-model AI chat — same engines and points as the app',
+      'chat.dockTitle': 'AI Assistant',
+      'chat.greeting': "Hi, I'm OneBox AI. Tell me what you want to do.",
+      'chat.online': 'Online',
+      'chat.collapse': 'Collapse',
+      'chat.placeholderDock': 'Type a command, e.g. "draft a weekly report"',
+      'chat.chip1': 'Draft a weekly report',
+      'chat.chip2': 'Translate some English',
+      'chat.chip3': 'Explain a concept',
+      'chat.placeholder': 'Type a message. Enter to send, Shift+Enter for newline',
+      'chat.send': 'Send',
+      'chat.stop': 'Stop',
+      'chat.model': 'Model',
+      'chat.empty': 'Start a conversation',
+      'chat.noPoints': 'Not enough points. Please top up in the app.',
+      'chat.loginRequired': 'Please sign in to use AI Chat',
+      'chat.errorGeneric': 'Request failed. Please try again.',
+      'chat.errorUpstream': 'AI service unavailable. Try another model.',
+      'chat.rateLimited': 'Too many requests. Please slow down.',
+      'chat.loadingModels': 'Loading models…',
+      'chat.loadModelsFailed': 'Failed to load models',
+      'chat.retry': 'Retry',
+      'chat.newChat': 'New chat',
+      'chat.thinking': 'Thinking…',
+      'chat.pointsLeft': 'Points',
+    },
+  },
+};
+
+export default aiChatTool;
